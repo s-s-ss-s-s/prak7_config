@@ -1,17 +1,34 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
+
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Создание экземпляра калькулятора
+        Calculator calculator = new Calculator();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        // Тестирование методов
+        int a = 10;
+        int b = 5;
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        // Сложение
+        System.out.println("Сложение: " + calculator.add(a, b)); // 10 + 5 = 15
+
+        // Вычитание
+        System.out.println("Вычитание: " + calculator.subtract(a, b)); // 10 - 5 = 5
+
+        // Умножение
+        System.out.println("Умножение: " + calculator.multiply(a, b)); // 10 * 5 = 50
+
+        // Деление
+        try {
+            System.out.println("Деление: " + calculator.divide(a, b)); // 10 / 5 = 2.0
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+
+        // Попытка деления на ноль
+        try {
+            System.out.println("Деление на ноль: " + calculator.divide(a, 0)); // Ошибка
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: " + e.getMessage()); // Деление на ноль недопустимо.
         }
     }
 }
